@@ -1,7 +1,6 @@
-const { test, expect } = require('@playwright/test');
+const { test } = require('@playwright/test');
 
 test('test', async ({ page }) => {
-
   // Go to https://www.bol.com/nl/nl/
   await page.goto('https://www.bol.com/nl/nl/');
 
@@ -16,8 +15,8 @@ test('test', async ({ page }) => {
 
   // Press Enter
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'https://www.bol.com/nl/nl/s/?searchtext=mondkapjes' }*/),
-    page.press('[data-test="search_input_trigger"]', 'Enter')
+    page.waitForNavigation(/* { url: 'https://www.bol.com/nl/nl/s/?searchtext=mondkapjes' } */),
+    page.press('[data-test="search_input_trigger"]', 'Enter'),
   ]);
 
   // Go to https://www.bol.com/nl/nl/s/?searchtext=mondkapjes#modal_open
@@ -63,5 +62,4 @@ test('test', async ({ page }) => {
   // Click [data-test="main-logo"] use
   await page.click('[data-test="main-logo"] use');
   // assert.equal(page.url(), 'https://www.bol.com/nl/nl/');
-
 });
